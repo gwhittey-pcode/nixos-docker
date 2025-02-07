@@ -69,6 +69,8 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "gwhittey";
   programs.firefox.enable = true;
+   # Enable networking
+  networking.networkmanager.enable = true;
 
   # Allow unfree packages
   # Configure keymap in X11
@@ -76,6 +78,24 @@
     layout = "us";
     variant = "";
   };
+   # Set your time zone.
+  time.timeZone = "America/New_York";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -118,11 +138,16 @@
   };
   environment.systemPackages = with pkgs; [
     quickemu
-	git
-	docker-compose
+	  git
+	  docker-compose
     jellyfin-media-player
     microsoft-edge
     vscode
+    parsec-bin
+    rustdesk-flutter
+    colorls
+    git-credential-manager
+    
   ];
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
