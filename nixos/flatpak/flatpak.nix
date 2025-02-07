@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let 
-  # We point directly to 'gnugrep' instead of 'grep'
+  # We point directly to 'gnugrep ' instead of 'grep'
   grep = pkgs.gnugrep;
 
   # 1. Declare the Flatpaks you *want* on your system
