@@ -99,7 +99,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  programs.zsh.enable = true;
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -134,6 +134,7 @@
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "networkmanager" "wheel" "gwhittey" "docker"];
+      shell = pkgs.zsh;
     };
   };
   environment.systemPackages = with pkgs; [
@@ -147,6 +148,7 @@
     rustdesk-flutter
     colorls
     git-credential-manager
+    meslo-lgs-nf
     
   ];
   # This setups a SSH server. Very important if you're setting up a headless system.
@@ -166,5 +168,6 @@
   system.stateVersion = "24.11";
   virtualisation.docker.enable = true;
   services.flatpak.enable = true;
+  
 
 }
