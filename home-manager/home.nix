@@ -15,6 +15,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./zsh/zsh.nix
+    ./git/git.nix
   ];
 
   nixpkgs = {
@@ -52,14 +53,7 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   
-  programs.git = {
-    extraConfig.credential.helper = "manager";
-    extraConfig.credential."https://github.com".username = "gwhittey-pcode";
-    extraConfig.credential.credentialStore = "cache";
-    enable = true;
-    userName  = "Gerard Whittey";
-    userEmail = "gerard.whittey@gmail.com";
-  };
+  
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
