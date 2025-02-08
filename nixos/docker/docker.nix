@@ -9,5 +9,6 @@
   virtualisation.oci-containers.backend = "docker";
  imports = [
     ./media_stack.nix
+    ./vpn_transmission.nix
  ];
 }
