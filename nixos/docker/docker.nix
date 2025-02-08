@@ -10,5 +10,6 @@
  imports = [
     ./media_stack.nix
     ./vpn_transmission.nix
+    ./portainer.nix
  ];
 }
