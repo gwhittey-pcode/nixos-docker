@@ -13,5 +13,6 @@
     ./portainer.nix
     ./calibre.nix
     ./komga.nix
+    ./update-containers.nix
  ];
 }
