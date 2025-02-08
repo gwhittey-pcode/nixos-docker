@@ -15,17 +15,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/63586456-f3b7-4a62-a6a0-68d95b670def";
+    fileSystems."/" =
+    { device = "/dev/disk/by-uuid/33c3c27d-1a96-4f14-bd9d-abaca600ba60";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/22FE-4692";
+    { device = "/dev/disk/by-uuid/C557-701F";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-    
 #   fileSystems."/HD/HD1" =
 #     { device = "/dev/disk/by-uuid/99655657-9ef1-4a4f-82ba-24eae8b84cde";
 #       fsType = "ext4";
