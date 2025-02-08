@@ -7,7 +7,7 @@
     autoPrune.enable = true;
   };
   virtualisation.oci-containers.backend = "docker";
- import = [
+ imports = [
     ./media_stack.nix
  ];
 }
