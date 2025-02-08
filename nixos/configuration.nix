@@ -20,6 +20,7 @@
     ./hardware-configuration.nix
     #flatpak handaling
     ./flatpak/flatpak.nix
+    ./docker/docker.nix
   ];
 
   nixpkgs = {
@@ -73,6 +74,7 @@
   programs.firefox.enable = true;
    # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
 
   # Allow unfree packages
   # Configure keymap in X11
@@ -151,6 +153,7 @@
     colorls
     git-credential-manager
     meslo-lgs-nf
+    compose2nix
     
   ];
   # This setups a SSH server. Very important if you're setting up a headless system.
