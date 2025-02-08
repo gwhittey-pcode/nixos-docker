@@ -12,5 +12,6 @@
     ./vpn_transmission.nix
     ./portainer.nix
     ./calibre.nix
+    ./komga.nix
  ];
 }
