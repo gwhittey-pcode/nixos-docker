@@ -13,7 +13,7 @@
     ./portainer.nix
     ./calibre.nix
     ./komga.nix
-    ./rustdesl.nix
+    ./rustdesk.nix
     ./update-containers.nix
  ];
 }
