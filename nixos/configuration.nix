@@ -19,7 +19,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     #flatpak handaling
-    ./flatpak/flatpak.nix
+    #./flatpak/flatpak.nix
   ];
 
   nixpkgs = {
@@ -170,6 +170,12 @@
   system.stateVersion = "24.11";
   virtualisation.docker.enable = true;
   services.flatpak.enable = true;
+
+  systemd.tmpfiles.rules = [
+  "d /HD/HD1 0755 gwhittey gwhittey"
+  "d /HD/HD2 0755 gwhittey gwhittey"
+  "d /HD/HD3 0755 gwhittey gwhittey"
+];
   
 
 }

@@ -26,20 +26,20 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
     
-  fileSystems."/HD/HD1" =
-    { device = "/dev/disk/by-uuid/99655657-9ef1-4a4f-82ba-24eae8b84cde";
-      fsType = "ext4";
-    };
-
-  fileSystems."/HD/HD2" =
-    { device = "/dev/disk/by-uuid/d685ce35-2acf-4bae-b257-e976fb759a88";
-      fsType = "ext4";
-    };
-
-  fileSystems."/HD/HD3" =
-    { device = "/dev/disk/by-uuid/1d557f66-05cc-4253-81a6-91fb8ef13b2b";
-      fsType = "ext4";
-    };
+#   fileSystems."/HD/HD1" =
+#     { device = "/dev/disk/by-uuid/99655657-9ef1-4a4f-82ba-24eae8b84cde";
+#       fsType = "ext4";
+#     };
+#
+#   fileSystems."/HD/HD2" =
+#     { device = "/dev/disk/by-uuid/d685ce35-2acf-4bae-b257-e976fb759a88";
+#       fsType = "ext4";
+#     };
+#
+#   fileSystems."/HD/HD3" =
+#     { device = "/dev/disk/by-uuid/1d557f66-05cc-4253-81a6-91fb8ef13b2b";
+#       fsType = "ext4";
+#     };
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
