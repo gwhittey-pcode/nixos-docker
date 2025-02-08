@@ -1,5 +1,5 @@
 # file: update-containers.nix
-{ ... }:
+{ pkgs, lib, ... }:
 
 {
   systemd.timers.update-containers = {
