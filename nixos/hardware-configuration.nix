@@ -5,38 +5,37 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "xhci_pci" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
-    fileSystems."/" =
-    { device = "/dev/disk/by-uuid/33c3c27d-1a96-4f14-bd9d-abaca600ba60";
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/ca163eb1-c687-4fa3-8fab-53fdbb39a8e7";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C557-701F";
+    { device = "/dev/disk/by-uuid/A445-40B5";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+
   fileSystems."/HD/HD1" =
-    { device = "/dev/disk/by-uuid/99655657-9ef1-4a4f-82ba-24eae8b84cde";
+    { device = "/dev/disk/by-label/HD1";
       fsType = "ext4";
     };
 
   fileSystems."/HD/HD2" =
-    { device = "/dev/disk/by-uuid/d685ce35-2acf-4bae-b257-e976fb759a88";
+    { device = "/dev/disk/by-label/HD2";
       fsType = "ext4";
     };
 
   fileSystems."/HD/HD3" =
-    { device = "/dev/disk/by-uuid/1d557f66-05cc-4253-81a6-91fb8ef13b2b";
+    { device = "/dev/disk/by-label/HD3";
       fsType = "ext4";
     };
   swapDevices = [ ];
@@ -46,13 +45,12 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   #networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp34s0.useDHCP = lib.mkDefault true;
-  networking.interfaces.enp34s0.ipv4.addresses = [ {
+  # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
+  networking.interfaces.ens18.ipv4.addresses = [ {
     address = "192.168.1.3";
     prefixLength = 24;
   } ];
   networking.defaultGateway = "192.168.1.254";
   networking.nameservers = [ "8.8.8.8" ];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

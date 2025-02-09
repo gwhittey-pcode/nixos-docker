@@ -61,6 +61,8 @@
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # FIXME: Add the rest of your current configuration
   services.xserver.enable = true;
@@ -179,6 +181,7 @@
   "d /HD/HD2 0755 gwhittey gwhittey"
   "d /HD/HD3 0755 gwhittey gwhittey"
 ];
-  
+  #Need hardware.enableRedistributableFirmware = lib.mkDefault true; for nixos guest to use GPU
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
 
 }
