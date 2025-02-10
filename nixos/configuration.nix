@@ -156,6 +156,8 @@
     git-credential-manager
     meslo-lgs-nf
     compose2nix
+    htop
+    gh
     
   ];
   # This setups a SSH server. Very important if you're setting up a headless system.
@@ -177,11 +179,14 @@
   services.flatpak.enable = true;
 
   systemd.tmpfiles.rules = [
+  "d /HD/ 0755 gwhittey gwhittey"
   "d /HD/HD1 0755 gwhittey gwhittey"
   "d /HD/HD2 0755 gwhittey gwhittey"
   "d /HD/HD3 0755 gwhittey gwhittey"
+
 ];
   #Need hardware.enableRedistributableFirmware = lib.mkDefault true; for nixos guest to use GPU
   hardware.enableRedistributableFirmware = lib.mkDefault true;
+  services.qemuGuest.enable = true; 
 
 }

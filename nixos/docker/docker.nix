@@ -11,9 +11,9 @@
     ./media_stack.nix
     ./vpn_transmission.nix
     ./portainer.nix
-    ./calibre.nix
-    ./komga.nix
-    ./rustdesk.nix
+   # ./calibre.nix
+   # ./komga.nix
+   # ./rustdesk.nix
     ./update-containers.nix
  ];
 }
