@@ -23,15 +23,34 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-
+  fileSystems."/HD/HD2" = {
+    device = "192.168.1.5:/HD2";
+    fsType = "nfs";
+    
+  };
+  fileSystems."/HD/HD3" = {
+    device = "192.168.1.5:/HD3";
+    fsType = "nfs";
+    
+  };
+    fileSystems."/HD/HD1" = {
+    device = "192.168.1.5:/HD1";
+    fsType = "nfs";
+    
+  };
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
+  #networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
-
+   networking.interfaces.ens18.ipv4.addresses = [ {
+    address = "192.168.1.3";
+    prefixLength = 24;
+  } ];
+  networking.defaultGateway = "192.168.1.254";
+  networking.nameservers = [ "192.168.1.254" "8.8.8.8" ];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

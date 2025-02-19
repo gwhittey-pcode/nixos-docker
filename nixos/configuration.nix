@@ -18,7 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-  #  ./docker/docker.nix
+    ./docker/docker.nix
   ];
 
   nixpkgs = {
