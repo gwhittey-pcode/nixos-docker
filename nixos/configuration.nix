@@ -18,9 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    #flatpak handaling
-    ./flatpak/flatpak.nix
-    ./docker/docker.nix
+  #  ./docker/docker.nix
   ];
 
   nixpkgs = {
@@ -63,18 +61,9 @@
   };
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  services.vscode-server.enable = true;
   # FIXME: Add the rest of your current configuration
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "gwhittey";
-  programs.firefox.enable = true;
-   # Enable networking
+  # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
 
@@ -123,7 +112,7 @@
   };
 
   # TODO: Set your hostname
-  networking.hostName = "gwhit-nixos";
+  networking.hostName = "nixos-docker";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.groups.gwhittey.gid = 1000;
@@ -144,21 +133,14 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    quickemu
 	  git
 	  docker-compose
-    jellyfin-media-player
-    microsoft-edge
-    vscode
-    parsec-bin
-    rustdesk-flutter
     colorls
     git-credential-manager
     meslo-lgs-nf
     compose2nix
     htop
-    gh
-    
+    gh    
   ];
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -176,8 +158,7 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";
   virtualisation.docker.enable = true;
-  services.flatpak.enable = true;
-
+  
   systemd.tmpfiles.rules = [
   "d /HD/ 0755 gwhittey gwhittey"
   "d /HD/HD1 0755 gwhittey gwhittey"
