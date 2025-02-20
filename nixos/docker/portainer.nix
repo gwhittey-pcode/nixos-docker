@@ -13,7 +13,7 @@
   virtualisation.oci-containers.containers."portainer" = {
     image = "portainer/portainer-ce:latest";
     volumes = [
-      "/HD/HD2/Config/portainer/portainer-data:/data:rw"
+      "/HD/HDTmp/Config/portainer/portainer-data:/data:rw"
       "/etc/localtime:/etc/localtime:ro"
       "/var/run/docker.sock:/var/run/docker.sock:ro"
     ];

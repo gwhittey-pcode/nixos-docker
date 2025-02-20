@@ -8,12 +8,12 @@
   };
   virtualisation.oci-containers.backend = "docker";
  imports = [
-  #   ./media_stack.nix
-  #   ./vpn_transmission.nix
+     ./media_stack.nix
+     ./vpn_transmission.nix
      ./portainer.nix
-  #   ./calibre.nix
-  #  ./komga.nix
+     ./calibre.nix
+    ./komga.nix
   #  # ./rustdesk.nix
-  #   ./update-containers.nix
+     ./update-containers.nix
  ];
 }
